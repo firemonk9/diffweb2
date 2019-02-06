@@ -1,0 +1,82 @@
+span{
+    margin-left:10px;
+    padding:5px;
+}
+
+div{
+    margin-left : 10px;
+}
+
+td{
+    border-style: groove;
+}
+
+.cta {
+    background: #7700FF;
+    border: none;
+    color: white;
+
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 1em;
+    cursor: pointer;
+    font-family: 'Montserrat';
+}
+
+.selectctrl {
+    background: #2e97a2;
+    border: none;
+    color: white;
+
+    border-radius: 4px;
+    padding: 1em;
+    cursor: pointer;
+    font-family: 'Montserrat';
+    width:300px;
+}
+
+.sessionid-color{
+    background: #c77777
+}
+.project-color{
+    background:#236d75
+}
+
+.flow-color{
+    background: #566b9e
+}
+
+.job-color{
+    background: #32949e
+}
+
+.cta_m{
+    margin-left:30px;
+}
+
+#sessionId{
+    margin-left:10px;
+}
+
+#flows_span{
+    margin-left:55px;
+}
+
+#exec_span{
+    margin-left:300px;
+}
+
+div{
+    margin-top:10px;
+}
+
+input[type="submit"]{
+    width:300px;
+}
+
+
+input[type="text"]{
+    height:30px;
+    margin-left:30px;
+    width:300px;
+}

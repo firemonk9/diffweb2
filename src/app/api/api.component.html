@@ -1,0 +1,116 @@
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="formObject" (ngSubmit)="onSubmit()">
+            <br>
+            <div class="form-group">
+                <input type="submit" class="cta" value="Get Authentication(15)" (click)="onClickGetAuthentication()">
+                <span class="sessionid-color" *ngIf="sessionId">SessionId</span>
+                <span id="sessionId" class="sessionid-color" *ngIf="sessionId">{{sessionId}}</span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="cta" value="Get All Projects(14)" (click)="onClickGetAllProject()">
+
+                <span *ngIf="projects">Projects</span>
+                <select *ngIf="projects" class="form-control selectctrl cta_m project-color" formControlName="project_name" 
+                            (change)="onClickGetAllFlowsfrProject()">
+                    <option *ngFor="let project of projects.projects" value="{{project.projectName}}">
+                        {{project.projectName}}
+                    </option>
+                </select>
+
+                <span *ngIf="flows" id="flows_span">Flows</span>
+                <select *ngIf="flows" class="form-control selectctrl cta_m flow-color" formControlName="flow_id"
+                        (change)="onGetJobsfrFlow()">
+                    <option *ngFor="let flow of flows.flows" value="{{flow.flowId}}">
+                        {{flow.flowId}}
+                    </option>
+                </select>
+            </div>
+            <br>
+            
+            <div class="form-group">
+                <span *ngIf="executions" id="exec_span">Executions</span>
+                <select *ngIf="executions" class="form-control selectctrl cta_m" formControlName="exec_id">
+                    <option *ngFor="let execution of executions.executions" value="{{execution.execId}}">
+                        {{execution.execId}}
+                    </option>
+                </select>
+            </div>
+
+            <br>
+
+            
+
+            <div class="form-group">
+                <input type="submit" value="Fetch Execution(16)" class="cta" (click)="onFecthExecution()">
+                <input type="submit" value="Execute Current Flow(17)" class="cta cta_m" (click)="onExecuteFlow()"/>
+                <input type="submit" value="Cancel Flow(18)" class="cta cta_m" (click)="onCancelFlow()"/>
+                <!--
+                <input type="text" formControlName="project_name" placeholder = "Project Name" />
+                -->
+                <br><br>
+                <table *ngIf="executions" >
+                    <thead>
+                        <tr>
+                            <td>ExecId</td>
+                            <td>FlowId</td>
+                            <td>SubmitTime</td>
+                            <td>SubmitUser</td>
+                            <td>StartTime</td>
+                            <td>EndTime</td>
+                            <td>Status</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let execution of executions.executions">
+                            <td>{{execution.execId}}</td>
+                            <td>{{execution.flowId}}</td>
+                            <td>{{execution.submitTime}}</td>
+                            <td>{{execution.submitUser}}</td>
+                            <td>{{execution.startTime}}</td>
+                            <td>{{execution.endTime}}</td>
+                            <td>{{execution.status}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <span *ngIf="jobs">Jobs</span>
+                <select *ngIf="jobs" class="form-control selectctrl cta_m job-color" formControlName="job_id">
+                    <option *ngFor="let job of jobs.nodes" value="{{job.id}}">
+                        {{job.id}}
+                    </option>
+                </select>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <input type="submit" value="Schedule Flow(19)" class="cta" (click)="onScheduleFlow()"/>
+                <input type="submit" value="Fetch a Schedule(20)" class="cta cta_m" (click)="onFetchSchedule()"/>
+            </div>
+
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Unschedule a Flow(21)" class="cta" (click)="onRemoveSched()"/>
+                <!--
+                <input type="text" formControlName="schedule_id__" placeholder = "Schedule ID" />
+                -->
+            </div>
+
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Pause a Flow(22)" class="cta" (click)="onPauseFlow()"/>
+                <!--
+                <input type="text" formControlName="exec_id__" placeholder = "Exection ID" />
+                -->
+            </div>
+
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Get Information(23)" class="cta" (click)="onGetInformationfrJob()"/>
+            </div>
+        </form>
+    </div>
+</div>
